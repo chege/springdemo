@@ -1,0 +1,1 @@
+insert into user (username) values ('Jon Hopkins');
