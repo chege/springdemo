@@ -38,4 +38,10 @@ public class UserRepoTest {
                                 .isEqualTo("smalahove");
                   });
     }
+
+    @Test
+    public void existsByUsername() {
+        Assertions.assertThat(repo.existsByUserName("smalahove"))
+                  .isTrue();
+    }
 }
