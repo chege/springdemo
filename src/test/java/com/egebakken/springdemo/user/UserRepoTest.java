@@ -23,10 +23,10 @@ public class UserRepoTest {
     public void addUser() {
         User pinnekjott = repo.save(new User("pinnekjott"));
         Assertions.assertThat(pinnekjott)
-                  .hasFieldOrPropertyWithValue("id", 2L)
+                  .hasFieldOrPropertyWithValue("id", 3L)
                   .hasFieldOrPropertyWithValue("username", "pinnekjott");
         Assertions.assertThat(countRowsInTable(template, "user"))
-                  .isEqualTo(2);
+                  .isEqualTo(3);
     }
 
     @Test
