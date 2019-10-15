@@ -48,7 +48,8 @@ public class UserControllerTest {
         this.mvc.perform(MockMvcRequestBuilders.get("/user")
                                                .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json("[{\"id\":1,\"username\":\"Sodd\"},{\"id\":2,\"username\":\"Troender\"}]"));
+                .andExpect(MockMvcResultMatchers.content().json(
+                        "{\"_embedded\":{\"userList\":[{\"id\":1,\"username\":\"Sodd\",\"_links\":{\"self\":{\"href\":\"http://localhost/user/1\"}}},{\"id\":2,\"username\":\"Troender\",\"_links\":{\"self\":{\"href\":\"http://localhost/user/2\"}}}]},\"_links\":{\"self\":{\"href\":\"http://localhost/user\"}}}"));
     }
 
     @Test

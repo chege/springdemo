@@ -28,7 +28,37 @@ public class ApplicationTests {
               .expectStatus()
               .isOk()
               .expectBody()
-              .json("[{\"id\":1,\"username\":\"smalahove\"}]");
+              .json(String.format(
+                      "{\n"
+                              + "  \"_embedded\": {\n"
+                              + "    \"userList\": [\n"
+                              + "      {\n"
+                              + "        \"id\": 1,\n"
+                              + "        \"username\": \"smalahove\",\n"
+                              + "        \"_links\": {\n"
+                              + "          \"self\": {\n"
+                              + "            \"href\": \"http://localhost:%s/user/1\"\n"
+                              + "          }\n"
+                              + "        }\n"
+                              + "      },\n"
+                              + "      {\n"
+                              + "        \"id\": 2,\n"
+                              + "        \"username\": \"kjottbolle\",\n"
+                              + "        \"_links\": {\n"
+                              + "          \"self\": {\n"
+                              + "            \"href\": \"http://localhost:%s/user/2\"\n"
+                              + "          }\n"
+                              + "        }\n"
+                              + "      }\n"
+                              + "    ]\n"
+                              + "  },\n"
+                              + "  \"_links\": {\n"
+                              + "    \"self\": {\n"
+                              + "      \"href\": \"http://localhost:%s/user\"\n"
+                              + "    }\n"
+                              + "  }\n"
+                              + "}", port, port, port
+              ));
 
     }
 }

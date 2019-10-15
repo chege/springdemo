@@ -1,7 +1,14 @@
 package com.egebakken.springdemo.user;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,16 +34,20 @@ class UserController {
             method = RequestMethod.GET,
             path = "/{id}"
     )
-    User get(@PathVariable long id) {
-        return users.findById(id)
-                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    EntityModel<User> get(@PathVariable long id) {
+        return new EntityModel<>(users.findById(id)
+                                      .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)),
+                                 linkTo(methodOn(UserController.class).get(id)).withSelfRel());
     }
 
     @RequestMapping(
             method = RequestMethod.GET
     )
-    Iterable<User> all() {
-        return users.findAll();
+    CollectionModel<EntityModel<User>> all() {
+        return new CollectionModel<>(StreamSupport.stream(users.findAll().spliterator(), false)
+                                                  .map(u -> new EntityModel<>(u, linkTo(methodOn(UserController.class).get(u.getId())).withSelfRel()))
+                                                  .collect(Collectors.toList()),
+                                     linkTo(methodOn(UserController.class).all()).withSelfRel());
     }
 
 
