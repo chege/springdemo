@@ -1,4 +1,4 @@
-package com.egebakken.springdemo.user;
+package springdemo.user;
 
 import static org.mockito.BDDMockito.given;
 

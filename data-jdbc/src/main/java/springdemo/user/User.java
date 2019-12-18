@@ -1,4 +1,4 @@
-package com.egebakken.springdemo.user;
+package springdemo.user;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;

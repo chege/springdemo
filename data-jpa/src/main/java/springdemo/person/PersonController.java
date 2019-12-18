@@ -1,4 +1,4 @@
-package com.egebakken.springdemo.person;
+package springdemo.person;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 

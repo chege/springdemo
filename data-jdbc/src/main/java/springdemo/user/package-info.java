@@ -1,4 +1,4 @@
 @NonNullApi
-package com.egebakken.springdemo.user;
+package springdemo.user;
 
 import org.springframework.lang.NonNullApi;

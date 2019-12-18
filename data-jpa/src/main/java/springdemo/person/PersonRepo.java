@@ -1,4 +1,4 @@
-package com.egebakken.springdemo.person;
+package springdemo.person;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

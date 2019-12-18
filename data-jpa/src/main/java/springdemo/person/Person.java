@@ -1,4 +1,4 @@
-package com.egebakken.springdemo.person;
+package springdemo.person;
 
 import java.util.Objects;
 import javax.persistence.Entity;
