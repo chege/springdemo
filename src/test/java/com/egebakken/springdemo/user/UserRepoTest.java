@@ -26,7 +26,7 @@ public class UserRepoTest {
                   .hasFieldOrPropertyWithValue("id", 3L)
                   .hasFieldOrPropertyWithValue("username", "pinnekjott");
         Assertions.assertThat(countRowsInTable(template, "user"))
-                  .isEqualTo(3);
+                  .isEqualTo(2);
     }
 
     @Test
