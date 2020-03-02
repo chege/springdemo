@@ -23,7 +23,7 @@ public class ApplicationTests {
     @Test
     public void findAllUsers() {
         client.get()
-              .uri("user")
+              .uri("users")
               .exchange()
               .expectStatus()
               .isOk()
@@ -37,7 +37,7 @@ public class ApplicationTests {
                               + "        \"username\": \"smalahove\",\n"
                               + "        \"_links\": {\n"
                               + "          \"self\": {\n"
-                              + "            \"href\": \"http://localhost:%s/user/1\"\n"
+                              + "            \"href\": \"http://localhost:%s/users/1\"\n"
                               + "          }\n"
                               + "        }\n"
                               + "      },\n"
@@ -46,7 +46,7 @@ public class ApplicationTests {
                               + "        \"username\": \"kjottbolle\",\n"
                               + "        \"_links\": {\n"
                               + "          \"self\": {\n"
-                              + "            \"href\": \"http://localhost:%s/user/2\"\n"
+                              + "            \"href\": \"http://localhost:%s/users/2\"\n"
                               + "          }\n"
                               + "        }\n"
                               + "      }\n"
@@ -54,7 +54,7 @@ public class ApplicationTests {
                               + "  },\n"
                               + "  \"_links\": {\n"
                               + "    \"self\": {\n"
-                              + "      \"href\": \"http://localhost:%s/user\"\n"
+                              + "      \"href\": \"http://localhost:%s/users\"\n"
                               + "    }\n"
                               + "  }\n"
                               + "}", port, port, port

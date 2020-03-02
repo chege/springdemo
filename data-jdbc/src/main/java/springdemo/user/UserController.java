@@ -20,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RequestMapping(
-        path = "user"
+        path = "users"
 )
 @RestController
 class UserController {
