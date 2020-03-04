@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+/**
+ * keywords: HATEOAS, Spring Data, package private
+ */
 @RequestMapping(
         path = "users"
 )
