@@ -5,6 +5,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -34,7 +35,7 @@ public class ApplicationTests {
                               + "    \"userList\": [\n"
                               + "      {\n"
                               + "        \"id\": 1,\n"
-                              + "        \"username\": \"smalahove\",\n"
+                              + "        \"username\": \"prince\",\n"
                               + "        \"_links\": {\n"
                               + "          \"self\": {\n"
                               + "            \"href\": \"http://localhost:%s/users/1\"\n"
@@ -43,7 +44,7 @@ public class ApplicationTests {
                               + "      },\n"
                               + "      {\n"
                               + "        \"id\": 2,\n"
-                              + "        \"username\": \"kjottbolle\",\n"
+                              + "        \"username\": \"elvis\",\n"
                               + "        \"_links\": {\n"
                               + "          \"self\": {\n"
                               + "            \"href\": \"http://localhost:%s/users/2\"\n"

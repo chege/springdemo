@@ -1,11 +1,9 @@
-management.endpoints.web.exposure.include: httptrace
-
 spring:
   jackson:
     default-property-inclusion: NON_ABSENT
 
 joke:
-  uri: "https://sv443.net/jokeapi/v2/joke/programming"
+  uri: "sv44"
 
 
 server:

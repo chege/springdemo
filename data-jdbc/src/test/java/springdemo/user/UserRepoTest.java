@@ -19,7 +19,7 @@ public class UserRepoTest {
 
     @Test
     public void existsByUsername() {
-        Assertions.assertThat(repo.existsByUserName("smalahove"))
+        Assertions.assertThat(repo.existsByUserName("prince"))
                   .isTrue();
     }
 }

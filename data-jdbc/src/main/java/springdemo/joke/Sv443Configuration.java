@@ -1,16 +1,20 @@
 package springdemo.joke;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConstructorBinding;
 
 @ConfigurationProperties("joke")
-class Sv443Configuration {
-    private String uri;
+public class Sv443Configuration {
+
+    private final String uri;
+
+    @ConstructorBinding
+    public Sv443Configuration(String uri) {
+        this.uri = uri;
+    }
 
     public String getUri() {
         return uri;
     }
 
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
 }
