@@ -20,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 /**
- * keywords: HATEOAS, Spring Data, package private
+ * keywords: HATEOAS, Spring Data, package private, CRUD service, no inner model
  */
 @RequestMapping(
         path = "users"
