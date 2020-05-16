@@ -30,7 +30,7 @@ public class UserControllerTest {
     @Test
     public void getUser() throws Exception {
         given(this.users.findById(1L))
-                .willReturn(Optional.of(new User(1L, "sodd")));
+                .willReturn(Optional.of(new User(1L, "sodd", "sodd.sabeltann@sol.no")));
 
         this.mvc.perform(MockMvcRequestBuilders.get("/users/1")
                                                .contentType(MediaType.APPLICATION_JSON)
@@ -42,8 +42,8 @@ public class UserControllerTest {
     public void allUsers() throws Exception {
         given(this.users.findAll())
                 .willReturn(Arrays.asList(
-                        new User(1L, "Sodd"),
-                        new User(2L, "Troender")
+                        new User(1L, "Sodd", "sodd.sabeltann@sol.no"),
+                        new User(2L, "Troender", "troender.barteussen@sol.no")
                 ));
 
         this.mvc.perform(MockMvcRequestBuilders.get("/users")
@@ -58,12 +58,12 @@ public class UserControllerTest {
         given(this.users.existsByUserName("sodd"))
                 .willReturn(false);
         given(this.users.save(ArgumentMatchers.any(User.class)))
-                .willReturn(new User(33L, "sodd"));
+                .willReturn(new User(33L, "sodd", "sodd.sabeltann@sol.no"));
 
         this.mvc.perform(MockMvcRequestBuilders.post("/users")
                                                .contentType(MediaType.APPLICATION_JSON)
                                                .accept(MediaType.APPLICATION_JSON)
-                                               .content("{\"username\" : \"sodd\"}"))
+                                               .content("{\"username\" : \"sodd\", \"email\":\"sodd.sabeltann@sol.no\"}"))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.header().string("Location", "http://localhost/users/33"));
     }
@@ -76,7 +76,7 @@ public class UserControllerTest {
         this.mvc.perform(MockMvcRequestBuilders.post("/users")
                                                .contentType(MediaType.APPLICATION_JSON)
                                                .accept(MediaType.APPLICATION_JSON)
-                                               .content("{\"username\" : \"sodd\"}"))
+                                               .content("{\"username\" : \"sodd\", \"email\":\"sodd.sabeltann@sol.no\"}"))
                 .andExpect(MockMvcResultMatchers.status().isConflict());
     }
 

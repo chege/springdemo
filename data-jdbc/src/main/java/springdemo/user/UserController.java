@@ -60,11 +60,13 @@ class UserController {
     ResponseEntity<Void> post(@RequestBody Map<String, String> usernameMap) {
         String username = Optional.ofNullable(usernameMap.get("username"))
                                   .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "username cannot be null"));
+        String email = Optional.ofNullable(usernameMap.get("email"))
+                               .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "email cannot be null"));
 
         if (users.existsByUserName(username)) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, String.format("user %s already exists", username));
         } else {
-            User savedUser = users.save(new User(username));
+            User savedUser = users.save(new User(username, email));
             return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentRequest()
                                                                      .path("/{id}")
                                                                      .buildAndExpand(savedUser.getId())
