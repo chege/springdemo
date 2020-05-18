@@ -3,6 +3,9 @@ package springdemo.joke;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
 
+/**
+ * keywords: immutable
+ */
 @ConfigurationProperties("joke")
 public class Sv443Configuration {
 

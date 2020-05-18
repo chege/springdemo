@@ -9,6 +9,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
+/**
+ * keywords: test slice, in-memory DB
+ */
 @RunWith(SpringRunner.class)
 @DataJdbcTest
 public class UserRepoTest {

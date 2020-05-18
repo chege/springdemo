@@ -16,7 +16,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-
+/**
+ * keywords: test slice, mock bean
+ */
 @RunWith(SpringRunner.class)
 @WebMvcTest(controllers = UserController.class)
 public class UserControllerTest {
