@@ -5,7 +5,6 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -59,6 +58,29 @@ public class ApplicationTests {
                               + "    }\n"
                               + "  }\n"
                               + "}", port, port, port
+              ));
+
+    }
+
+    @Test
+    public void getUser() {
+        client.get()
+              .uri("users/1")
+              .exchange()
+              .expectStatus()
+              .isOk()
+              .expectBody()
+              .json(String.format(
+                      "{\n"
+                              + "  \"id\": 1,\n"
+                              + "  \"username\": \"prince\",\n"
+                              + "  \"email\": \"prince.pedersen@sol.no\",\n"
+                              + "  \"_links\": {\n"
+                              + "    \"self\": {\n"
+                              + "      \"href\": \"http://localhost:%s/users/1\"\n"
+                              + "    }\n"
+                              + "  }\n"
+                              + "}", port
               ));
 
     }
