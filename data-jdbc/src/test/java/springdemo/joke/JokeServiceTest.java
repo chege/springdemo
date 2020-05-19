@@ -20,7 +20,9 @@ public class JokeServiceTest {
     @Test
     public void programmingJokeFromJoke() {
         Sv443 mockedSv443 = Mockito.mock(Sv443.class);
-        doReturn(ResponseEntity.ok(new Sv443Joke("car", "type", null, "delivery", "some joke", new Flags(), 123, false)))
+        doReturn(ResponseEntity.ok(new Sv443Joke("car", "type", null, "delivery", "some joke",
+                                                 null,
+                                                 123, false)))
                 .when(mockedSv443).findProgrammingJoke();
 
         Optional<Joke> actual = new JokeService(mockedSv443).programmingJoke();
@@ -33,7 +35,7 @@ public class JokeServiceTest {
     @Test
     public void programmingJokeFromSetupAndDelivery() {
         Sv443 mockedSv443 = Mockito.mock(Sv443.class);
-        doReturn(ResponseEntity.ok(new Sv443Joke("car", "type", "some setup", "some delivery", null, new Flags(), 123, false)))
+        doReturn(ResponseEntity.ok(new Sv443Joke("car", "type", "some setup", "some delivery", null, null, 123, false)))
                 .when(mockedSv443).findProgrammingJoke();
 
         Optional<Joke> actual = new JokeService(mockedSv443).programmingJoke();

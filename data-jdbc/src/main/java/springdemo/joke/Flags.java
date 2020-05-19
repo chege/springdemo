@@ -1,5 +1,7 @@
 package springdemo.joke;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 class Flags {
     private boolean nsfw;
     private boolean religious;
@@ -7,43 +9,37 @@ class Flags {
     private boolean racist;
     private boolean sexist;
 
-    boolean isNsfw() {
-        return nsfw;
+    public Flags(
+            @JsonProperty("nsfw") boolean nsfw,
+            @JsonProperty("religious") boolean religious,
+            @JsonProperty("political") boolean political,
+            @JsonProperty("racist") boolean racist,
+            @JsonProperty("sexist") boolean sexist
+    ) {
+        this.nsfw = nsfw;
+        this.religious = religious;
+        this.political = political;
+        this.racist = racist;
+        this.sexist = sexist;
     }
 
-    void setNsfw(boolean nsfw) {
-        this.nsfw = nsfw;
+    boolean isNsfw() {
+        return nsfw;
     }
 
     boolean isReligious() {
         return religious;
     }
 
-    void setReligious(boolean religious) {
-        this.religious = religious;
-    }
-
     boolean isPolitical() {
         return political;
-    }
-
-    void setPolitical(boolean political) {
-        this.political = political;
     }
 
     boolean isRacist() {
         return racist;
     }
 
-    void setRacist(boolean racist) {
-        this.racist = racist;
-    }
-
     boolean isSexist() {
         return sexist;
-    }
-
-    void setSexist(boolean sexist) {
-        this.sexist = sexist;
     }
 }
