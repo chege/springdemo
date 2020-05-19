@@ -8,14 +8,14 @@ import java.util.Optional;
  * keywords: immutability, jsoncreator
  */
 class Sv443Joke {
-    private String category;
-    private String type;
-    private String setup;
-    private String delivery;
-    private String joke;
-    private Flags flags;
-    private Integer id;
-    private boolean error;
+    private final String category;
+    private final String type;
+    private final String setup;
+    private final String delivery;
+    private final String joke;
+    private final Flags flags;
+    private final Integer id;
+    private final boolean error;
 
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
     Sv443Joke(

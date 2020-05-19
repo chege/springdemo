@@ -3,11 +3,11 @@ package springdemo.joke;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 class Flags {
-    private boolean nsfw;
-    private boolean religious;
-    private boolean political;
-    private boolean racist;
-    private boolean sexist;
+    private final boolean nsfw;
+    private final boolean religious;
+    private final boolean political;
+    private final boolean racist;
+    private final boolean sexist;
 
     public Flags(
             @JsonProperty("nsfw") boolean nsfw,

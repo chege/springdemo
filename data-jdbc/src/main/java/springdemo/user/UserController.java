@@ -27,7 +27,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 )
 @RestController
 class UserController {
-    UserRepo users;
+    private final UserRepo users;
 
     UserController(UserRepo users) {
         this.users = users;

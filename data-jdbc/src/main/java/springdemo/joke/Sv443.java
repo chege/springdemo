@@ -11,7 +11,7 @@ import springdemo.LoggingRequestInterceptor;
  */
 @Service
 class Sv443 {
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
     private final Sv443Configuration config;
 
     Sv443(RestTemplateBuilder builder, Sv443Configuration config) {

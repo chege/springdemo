@@ -3,8 +3,8 @@ package springdemo.joke;
 import java.util.Objects;
 
 class Joke {
-    private String joke;
-    private String category;
+    private final String joke;
+    private final String category;
 
     Joke(String joke, String category) {
         this.joke = joke;

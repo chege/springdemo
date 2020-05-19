@@ -15,7 +15,7 @@ import org.springframework.web.client.RestClientException;
 @Service
 public class JokeService {
     private static final Logger LOG = LoggerFactory.getLogger(JokeService.class);
-    private Sv443 sv443;
+    private final Sv443 sv443;
 
     public JokeService(Sv443 sv443) {
         this.sv443 = sv443;

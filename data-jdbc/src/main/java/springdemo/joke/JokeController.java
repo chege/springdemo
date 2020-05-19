@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
         path = "jokes"
 )
 class JokeController {
-    private JokeService service;
+    private final JokeService service;
 
     JokeController(JokeService service) {
         this.service = service;
